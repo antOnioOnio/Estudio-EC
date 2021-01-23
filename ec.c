@@ -13,6 +13,7 @@ Registros
     *Una CPU con bus de direcciones de 16 bits y bus de datos de 8 bits tiene un registro de 8 bits conectado al bus de datos y a la unidad de control.
      Puede tratarse del registro de instruccion
     *¿Cómo actúa el indicador N del registro de indicadores de estado?	Se pone a 1 cuando el resultado es negativo.
+    *¿Cómo actúa el indicador Z del registro de indicadores de estado?  Se pone a 1 cuando el resultado de una operación es 0
 
 
      PROPOSITO GENERAL===> e
@@ -271,3 +272,22 @@ Tema 3
 *¿En qué registro está contenido el último dato (o instrucción) leído de memoria, o el dato que se va a escribir en memoria? en el MBR broda
 *false El campo tipo de secuenciamiento indica al generador de direcciones de una unidad de control microprogramada el mecanismo de cómputo de la EA del 
     operando de la instrucción.
+*Una unidad de control microprogramada se denomina "con secuenciamiento de microinstrucciones explícito" según tenga o no tenga
+    micro-contador de programa atacando a las líneas de dirección de la memoria de control
+*¿Cuál de las siguientes funciones no corresponde a la unidad de control de un procesador?
+    ==>Calculo de operaciones de coma flotante
+    por tanto si   
+        Secuenciamiento de las instrucciones
+        Decodificación de las instrucciones
+        Generación de las señales de control que provocan la ejecución de cada instrucción
+*Alguna de las siguientes *no* es una operación básica de la unidad de control:
+    ==>(Guardar o recuperar) un registro (en / de) la pila
+    por tanto si   
+        Transferir un registro a otro
+        Realizar operación ALU y guardar resultado en registro
+        (Leer o escribir) un registro (de / a) memoria
+
+*false El incremento de velocidad de los RISC se consigue a costa de un aumento del área de chip dedicado a
+    la unidad de control.
+*false Las unidades de control cableadas memorizan los pasos de ejecución de una instrucción máquina en una memoria de control,
+    y las microprogramadas en una PLA.
