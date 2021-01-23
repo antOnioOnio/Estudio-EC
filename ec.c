@@ -269,5 +269,5 @@ Tema 3
 *Para conectar las salidas de dos registros hacia un bus común en el datapath... se pueden usar dos buffers triestado.
 *true En una microinstrucción que hace uso del registro de control residual, el contenido de éste normalmente se interpreta como señales de control.
 *¿En qué registro está contenido el último dato (o instrucción) leído de memoria, o el dato que se va a escribir en memoria? en el MBR broda
-*El campo tipo de secuenciamiento indica al generador de direcciones de una unidad de control microprogramada el mecanismo de cómputo de la EA del 
+*false El campo tipo de secuenciamiento indica al generador de direcciones de una unidad de control microprogramada el mecanismo de cómputo de la EA del 
     operando de la instrucción.
