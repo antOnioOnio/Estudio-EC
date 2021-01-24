@@ -242,6 +242,9 @@ Tema 3
     de control que no usara nanoprogramación.
 *false El objetivo del control residual es aumentar la velocidad de ejecución de microinstrucciones,
     aunque esto tiene el inconveniente de aumentar el tamaño del microprograma. Es false porque es optimizar el tamaño del microprograma.
+* El control residual se utiliza para: reducir el tamaño de la memoria de control
+
+
 *Son funciones de la unidad de control:==> el secuenciamiento de las instrucciones máquina
 *true En general, un operación segmentada ("pipelined") requiere el mismo tiempo o más, desde el principio hasta el fin y para un único par de operandos, 
     que la misma operación en una implementación no segmentada
@@ -289,5 +292,88 @@ Tema 3
 
 *false El incremento de velocidad de los RISC se consigue a costa de un aumento del área de chip dedicado a
     la unidad de control.
+
+*false El área de chip utilizada por la unidad de control es menor en un CISC que en un RISC, al ser microprogramada en el primero.
+
 *false Las unidades de control cableadas memorizan los pasos de ejecución de una instrucción máquina en una memoria de control,
     y las microprogramadas en una PLA.
+
+*true En general, un operación segmentada ("pipelined") requiere el mismo tiempo o más, desde el principio hasta el fin y para un único par de operandos,
+ que la misma operación en una implementación no segmentada.
+
+*true En un camino de datos con un solo bus, para realizar la operación de copia de un registro r1 en un registro r2,
+ es decir r2 ← r1, es necesario: Habilitar la salida triestado del registro r1 y activar la carga del registro r2
+*true Se suelen utilizar PLA en las unidades de control cableadas. 
+*false Usando chips bit-slice de 4 bits se pueden construir procesadores 4, 8 ó 12 bits, pero no más.
+
+
+
+
+ //=========
+//=========
+Tema 4
+
+
+*true Un cauce ("pipeline") de instrucciones con 5 etapas tarda 7 ciclos de reloj o más en ejecutar 3 instrucciones si 
+éstas utilizan las cinco etapas.
+*Las instrucciones de salto...complican el diseño eficiente de los procesadores segmentados.
+*Alguno de los siguientes NO es un motivo de que no se alcance la ganancia ideal en un cauce segmentado
+    	==> La emisión múltiple (y posiblemente desordenada) de instrucciones
+        ==> cola de instrucciones (precaptación)
+        por tanto son motivos: ¿ Son motivos ?
+            -El propio coste de la segmentación (carga de los registros de acoplo, etc...)
+            -Los riesgos (hazards)
+            -La duración del ciclo de reloj impuesta por la etapa más lenta
+
+*false Un microprocesador es superescalar si tiene un número mayor de etapas y éstas son más cortas que las de un 
+    cauce ("pipeline") normal, permitiendo una velocidad de reloj mayor.
+*false Un microprocesador es superencauzado ("superpipelined") si permite la emisión de dos o más instrucciones en un mismo ciclo de reloj.
+
+*La predicción de saltos está relacionada con...Los riesgos de control (intenta determinar de antemano el flujo de control)
+*Si representamos la fase Decode con una D,  Execute con una E, Fetch con una F y Writeback con una W, 
+    el orden correcto de las distintas fases de una instrucción máquina es: F D E W
+*Una cola de precaptación sirve para: Reducir el efecto de los fallos de cache
+*La precaptación (cola de instrucciones) está relacionada con...Los riesgos estructurales (intenta evitar el efecto de un fallo de cache)
+*Respecto a la segmentación:Cuanto mayor sea la relación entre el tiempo de ejecución de una instrucción sin segmentar y el tiempo de una etapa 
+en el procesador segmentado, mayor será la ganancia máxima que se puede obtener
+
+*Respecto a los conceptos de procesamiento segmentado y superescalar, una de las siguientes afirmaciones es falsa
+    ==> en cualquier procesador resulta ventajoso usar una cola de instrucciones, pero es más importante para uno 
+            segmentado (fundamental) que para uno superescalar (conveniente)
+    Por tanto son verdaderas:
+        -por definición, un procesador superescalar debe tener varias unidades funcionales (más de una)
+        -idealmente, con el segmentado se intenta ejecutar una instrucción por ciclo, y con el superescalar 
+            más de una por ciclo (al combinarlo con segmentado)
+        -implícitamente, se presupone que un procesador superescalar emitirá más de una instrucción por ciclo
+
+*En la técnica de salto retardado: El compilador puede reorganizar el código para rellenar los huecos de retardo con instrucciones útiles
+*Sobre la segmentación:Existen limitaciones al rendimiento provocadas por las instrucciones de salto y por las dependencias de datos.
+*Respecto a la segmentación, ¿cuál de las siguientes afirmaciones es falsa?
+    ==> Retrasar la fase de decisión saltar/no saltar de las instrucciones de salto condicional contribuye a mejorar el rendimiento del procesador
+    Por tanto son verdaderas:
+        -La técnica de register forwarding habilita una serie de caminos (buses) que se añaden al cauce para permitir que los resultados
+             de una etapa pasen como entradas a la etapa donde son necesarias
+        -Cuantas más etapas tenga un cauce, más instrucciones se estarán ejecutando en distintas fases y más posibilidades se presentan 
+            de que existan riesgos entre ellas
+        -La reorganización del código y la introducción de instrucciones nop permite evitar dependencias de datos
+
+*¿Cuál de los siguientes modos de direccionamiento es *menos* preferible para un procesador con segmentación de cauce?
+    Indirecto a través de memoria
+*¿Cuál de los siguientes modos de direccionamiento es menos preferible para un procesador de 32 bits y con tamaño de instrucción de 32 bits?
+    directo (o absoluto)
+
+*¿Cuál de las siguientes afirmaciones sobre la segmentación de cauce es cierta?
+    En general, un operación segmentada ("pipelined") requiere el mismo tiempo o más, desde el principio hasta el fin, que la 
+    misma operación en una implementación no segmentada
+
+*Respecto al salto retardado y al salto anulante, ¿cuál permite que se ejecute la siguiente instrucción, y cuál no?
+    el retardado la ejecuta siempre, el anulante la ejecuta sólo si se cumple la condición de salto
+
+*Respecto a la predicción de saltos, alguna de las siguientes afirmaciones es falsa
+    ==> para predicción estática, es conveniente decidir que los saltos hacia adelante siempre se cumplen, y hacia atrás no
+        es false porque==> en los bucles se fallaría siempre (salvo la última iteración)
+
+    ==> por lo tanto son verdaderas
+        -->si se toma la misma decisión para cada tipo de instrucción, se trata de "predicción estática"
+        -->si la predicción cambia según la historia de ejecución del programa, se trata de "predicción dinámica"
+        -->para predicción dinámica, existen, entre otros, algoritmos de dos o cuatro estados, que requieren 1 o 2 bits por instrucción
