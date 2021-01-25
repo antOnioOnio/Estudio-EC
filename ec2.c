@@ -84,8 +84,8 @@ Si se rediseña de modo que se solapen los dos campos. ¿ Cuantos bits se ahorra
 
 
 
-*Un procesador x86 a 4GHZ dispone de 7 unidades de ejecucion en paralelo, con 20 etapas de segmentacion y es capaz de emitir ( comenzar a ejecutar )
- 4 instrucciones en cada ciclo de reloj ¿ Que velocidad aproximada de ejecucion sera capaz de alcanzar en MIPS ?
+*Un procesador x86 a 4GHZ dispone de 7 unidades de ejecucion en paralelo, con 20 etapas de segmentacion y es capaz de emitir
+( comenzar a ejecutar ) 4 instrucciones en cada ciclo de reloj ¿ Que velocidad aproximada de ejecucion sera capaz de alcanzar en MIPS ?
 
 4 x 4 == > 16..
 

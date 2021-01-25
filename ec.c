@@ -309,7 +309,7 @@ Tema 3
 
 
 
- //=========
+//=========
 //=========
 Tema 4
 
@@ -377,3 +377,81 @@ en el procesador segmentado, mayor será la ganancia máxima que se puede obtene
         -->si se toma la misma decisión para cada tipo de instrucción, se trata de "predicción estática"
         -->si la predicción cambia según la historia de ejecución del programa, se trata de "predicción dinámica"
         -->para predicción dinámica, existen, entre otros, algoritmos de dos o cuatro estados, que requieren 1 o 2 bits por instrucción
+
+
+*La precaptación (cola de instrucciones) está relacionada con...Los riesgos estructurales (intenta evitar el efecto de un fallo de cache)
+*true Se podría diseñar una CPU microprogramada de manera que la captación y la ejecución de microinstrucciones se solapasen en el tiempo.
+
+
+
+//=========
+//=========
+Tema 5
+
+*Al método de interacción con los periféricos, en los que el procesador vigila periódicamente el estado de los dispositivos mediante una encuesta activa
+    se le denomina: ==> polling
+*¿Cuántos niveles de interrupción podremos gestionar si disponemos de 7 controladores de interrupciones programables 8259? ==> 50
+*¿En qué método para determinar la dirección de comienzo de una rutina de servicio de interrupción se envia parte de dicha dirección?
+    ==> Direccionamiento relativo
+*¿Cuál de los siguientes es un registro de un controlador de DMA?
+    ==> WC (word count)
+    ==> también encontramos:
+        -->AR (direcciones)
+        -->DR (datos)
+        -->CR (Ordenes)
+        -->De prioridades
+    ==> NO están 
+        --> IR 
+        --> PC
+        --> SP
+*¿Cuál de los siguientes buses es más raro encontrar en un PC? ==> MCA
+*false El ancho de banda máximo de los buses VESA Local Bus y PCI es mayor de 1 GB/s.
+*Respecto a los conceptos de interfaz de dispositivo, controlador(a), puerto de E/S:
+    ==>La controladora o interfaz contiene los puertos necesarios para utilizar el dispositivo
+*¿Cuántas señales de control se necesitan como mínimo para implementar un sistema de gestión de interrupciones? 2
+*true La transmisión isócrona garantiza un ancho de banda fijo sin que se produzcan interrupciones en el flujo de datos.
+*true El "polling" es una técnica para conocer qué periférico (o interfaz) ha provocado una interrupción, 
+    suponiendo que las interrupciones no son vectorizadas.
+*true Mediante el software adecuado se puede hacer que las salidas a una impresora se escriban en un buffer en disco. 
+    Tendríamos entonces un dispositivo de salida lógico.
+*false La gestión distribuida del arbitraje consiste en un árbitro central del bus al que llegan múltiples líneas de petición de varios maestros potenciales y
+    del que salen las correspondientes señales de concesión.
+*¿Cuál de las siguientes afirmaciones acerca de las interrupciones en el PC (modo real) es cierta?
+    ==>Todas las interrupciones se pueden generar por software
+    Por tanto false :
+    -->Todas las interrupciones se pueden generar por software
+    -->Cada vector de interrupción es una palabra de 16 bits
+    -->La tabla de interruciones tiene un tamaño de 256 bytes
+
+*false La diferencia entre temporización de bus asíncrona y semisíncrona es que en la asíncrona las transferencias ocurren
+    en algún múltiplo de ciclo de reloj, y en la semisíncrona no existe reloj del bus.
+*true La prioridad de la línea de interrupción de un reloj de tiempo real ha de ser mayor que la prioridad de la    
+    línea de interrupción de una unidad de disquete.
+
+*En un sistema con dos buses separados, uno para el subsistema de memoria y otro para la E/S...el bus que une la memoria y 
+    el procesador suele funcionar a la velocidad de la memoria
+*Respecto a si un computador dispone de E/S independiente (separada) o usa E/S mapeada a memoria:
+    ==>Si el repertorio del procesador tiene instrucciones del tipo IN y OUT, es que el computador dispone de E/S separada
+*¿Con cuál de los siguientes dispositivos tendría sentido utilizar E/S programada sin consulta de estado?
+    ==> Salida a un display de 7 segmentos
+*La especificación de un bus a nivel eléctrico debe incluir las siguientes partes:Alimentación, impedancia, nivel de señal,...
+*¿Cuántos bytes puede transmitir como máximo el controlador de acceso directo a memoria 8237 de forma consecutiva?
+    ==> Existe al menos un modo de funcionamiento sin límite máximo
+*La técnica de sondeo, escrutinio o "polling"...Permite establecer un mecanismo de asignación de prioridades a los distintos dispositivos
+*false Una operación de E/S por DMA (transferencia de un bloque o conjunto de datos) es inicializada automáticamente por el controlador de DMA, es decir, 
+    la CPU no tiene que ejecutar ninguna instrucción de inicialización.
+*false En un sistema con interrupciones vectorizadas, el dispositivo o interfaz siempre suministra la dirección de la rutina de servicio de 
+    interrupción, aunque a esa dirección le falten bits.
+*false Cuando una CPU dispone de muchas líneas de interrupción con un dispositivo en cada una, será necesario utilizar "polling" 
+    para detectar la fuente de la interrupción.
+*Sobre las técnicas de transferencia en operaciones de E/S:
+    ==> Pueden ser controladas por programa o por hardware
+    ==> Si se emplea E/S programada puede hacerse con consulta de estado o sin consulta de estado
+    ==> En el caso de utilizar E/S mediante DMA hace falta emplear un controlador de DMA
+*Un procesador de 8 bits, ¿a cuántos puertos de E/S podrá acceder? ==> Depende del método de selección de periféricos que emplee
+*false En la configuración de E/S mapeada en memoria, la CPU tiene instrucciones de E/S, y cuando se ejecuta una de ellas, la CPU habilita 
+    alguna línea especial que sirve para que la circuitería externa decodifique por separado las direcciones correspondientes a memoria y 
+    las correspondientes a puertos de E/S
+
+*true En el controlador de DMA 8237 los registros de dirección de memoria y contador de bytes están duplicados para cada canal para que en el modo de autoinicio el circuito sea 
+    capaz de recordar los valores originales de esos registros.
