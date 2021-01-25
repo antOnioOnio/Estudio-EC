@@ -592,3 +592,19 @@ Tema 5
         ==> múltiples líneas de interrupción INT1#, INT2#...
         ==> interrupciones vectorizadas
 *true En las transferencias asíncronas no existe un reloj común a maestro y esclavo.
+*true El controlador de DMA programable 8237 puede realizar una operación de acceso directo a memoria en la que se transfiera
+    un bloque de 512 KBytes sin intervención de la CPU una vez comenzada la transferencia.
+*false Con cuatro controladores de interrupciones 8259 se pueden manejar 32 niveles de prioridad.
+*Supongamos dos CPU con bus de direcciones de ancho idéntico. Si una de ellas emplea E/S independiente y la otra mapeada en memoria, ¿cuál podrá acceder a una
+    mayor cantidad de memoria? La CPU con E/S independiente.
+*true La conexión de un 8086 a un sistema de memoria y E/S requiere algún circuito externo más en modo máximo que en modo mínimo.
+*Utilizando E/S programada y como modo de direccionamiento selección lineal, ¿cuántos periféricos podrían conectarse a un 8086? 
+    ==> 16 periféricos
+*Respecto a la E/S programada...
+    ==> false No todos los pasos requieren la ejecución de instrucciones por parte de la CPU
+    ==> false La transferencia la realiza un procesador externo a la CPU
+
+*Alguna/s de las ventajas de la E/S mapeada en memoria frente a la E/S aislada o independiente es/son:
+    ==> El diseño de la CPU es más sencillo.
+*Un controlador de DMA suele ser programado con la siguiente información relativa a una operación de E/S:
+    ==> tipo de operación, tamaño de bloque a transferir, dirección inicial de memoria
