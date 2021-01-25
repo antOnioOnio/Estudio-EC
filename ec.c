@@ -452,6 +452,143 @@ Tema 5
 *false En la configuración de E/S mapeada en memoria, la CPU tiene instrucciones de E/S, y cuando se ejecuta una de ellas, la CPU habilita 
     alguna línea especial que sirve para que la circuitería externa decodifique por separado las direcciones correspondientes a memoria y 
     las correspondientes a puertos de E/S
+*true En la configuración de E/S aislada o independiente, la CPU tiene instrucciones de E/S, y cuando se ejecuta una de ellas, la CPU habilita 
+    alguna línea especial que sirve para que la circuitería externa decodifique por separado las direcciones correspondientes a memoria y 
+    las correspondientes a puertos de E/S.
+*true En el controlador de DMA 8237 los registros de dirección de memoria y contador de bytes están duplicados para cada canal para que en el modo de
+    autoinicio el circuito sea capaz de recordar los valores originales de esos registros.
 
-*true En el controlador de DMA 8237 los registros de dirección de memoria y contador de bytes están duplicados para cada canal para que en el modo de autoinicio el circuito sea 
-    capaz de recordar los valores originales de esos registros.
+*La consulta de estado que se puede llevar a cabo en la E/S programada sirve para...consultar si el dispositivo está dispuesto para recibir datos o 
+    tiene datos disponibles
+
+*false La desventaja de las transferencias por bloques en un bus es que hay que transmitir todas las direcciones consecutivas de los datos del bloque.
+*true El arbitraje estático de un bus es muy simple, pero es poco flexible, y además hay que calcular previamente qué ancho de banda va a requerir
+     cada dispositivo para no bloquear al más rápido.
+
+*true Cuando se utiliza "daisy-chain", será necesario leer los biestables de concesión de interrupción asociados a los dispositivos, a no ser que se
+     usen vectores de interrupción.
+
+*Un computador que utilice únicamente controladores programables 8237 para realizar el DMA por robo de ciclo puede realizar:
+    ==>más de cuatro transferencias por DMA concurrentes
+
+*true Escribiendo en el registro de máscara de interrupciones es posible inhabilitar todas las interrupciones enmascarables.
+*¿Cuántos controladores de interrupciones 8259 hacen falta como mínimo para manejar 25 líneas de interrupción? ==> 4
+*¿Es cierto que la consulta de estado permite averiguar el estado de un periférico y alterar la prioridad de los periféricos? ==> SI
+*false El controlador de interrupciones programable 8259 no permite enmascarar selectivamente líneas de interrupción.
+*true Durante un robo de ciclo DMA el procesador mantiene en alta impedancia el bus de direcciones.
+*true La posibilidad de liberar un bus por "pre-emption" consiste en que se pueda interrumpir una transferencia en curso que esté realizando un 
+    determinado maestro cuando llega una petición del bus por parte de un maestro potencial de mayor prioridad.
+*false Un programa que realice salida programada con consulta de estado no ejecutará ninguna instrucción de entrada o carga.
+*Respecto a si un computador dispone de E/S independiente (separada) o usa E/S mapeada a memoria:
+    ==> Si el repertorio del procesador tiene instrucciones del tipo IN y OUT, es que el computador dispone de E/S separada
+*false Suponga un programa residente que utiliza DMA por robo de ciclo para reproducir a través de una tarjeta de sonido una melodía de fondo,
+    que se encontraba en memoria, de manera simultánea a la ejecución de un programa de usuario. La velocidad de ejecución de dicho programa
+    de usuario no se verá afectada por el programa residente, ya que éste utiliza DMA.
+*false En el modo mínimo el 8086 genera menos señales que en el máximo, y por tanto depende del controlador de bus 8288 para generar el
+    conjunto completo de señales de control del bus.
+*¿Cuál de las siguientes tareas no es responsabilidad de un circuito de interfaz o controlador de periféricos sencillo?
+    ==> Ejecutar el programa de transferencia de información entre el procesador y los dispositivos de E/S
+    Por tanto si:
+        ==> Recibir señales de control desde el procesador
+        ==> Adaptar el formato de las señales
+        ==> Ajustar la temporización entre el procesador y los dispositivos de E/S
+*¿A qué tipo de interrupciones corresponde la forma de determinar la dirección de comienzo de una rutina de interrupción en la que se envía 
+    una instrucción de bifurcación completa?
+    ==> Interrupciones vectorizadas
+*false En el acceso directo a memoria la CPU pone en el bus de direcciones del sistema las direcciones de memoria correspondientes a 
+    cada dato que se transfiere por DMA.
+*Un computador con 15 líneas de direcciones tiene 3 módulos de memoria de 2^13 palabras y utiliza E/S mapeada en memoria. ¿Cuál es el número máximo
+    de periféricos que pueden conectarse, si cada uno de ellos utiliza 8 direcciones? ==> 2^10
+*false En la E/S controlada por interrupciones la CPU no tiene que ejecutar un programa para realizar la transferencia de datos.
+*¿Cuál de las siguientes afirmaciones acerca del concepto de interrupción es cierta?
+    ==> Es una bifurcación normalmente externa al programa en ejecución
+*false El ancho de banda máximo de los buses VESA Local Bus y PCI es mayor de 1 GB/s.
+*false SCSI son las siglas de Small Computer Serial Interface (interfaz serie para computadores pequeños).
+        Small compuuter system interface
+*true Si varios dispositivos comparten una única línea de solicitud de interrupción se puede usar "polling" para identificar el origen de una interrupción.
+
+*La E/S programada:
+    ==> Empeora las prestaciones globales del sistema respecto a la E/S por interrupciones porque la CPU debe encargarse de la 
+    sincronización con la interfaz del periférico haciendo una espera activa.
+
+*true En un sistema que utilice DMA transparente la CPU genera alguna señal de control externa que indica al controlador de 
+    DMA cuándo realizar el acceso directo a memoria.
+*false El "handshaking" se utiliza en transferencias de datos "síncronas" entre CPU y periféricos ==> se utiliza en asincronas
+*¿Cuál de las siguientes afirmaciones acerca de un sistema con un bus único es falsa?
+    ==> El procesador y los dispositivos pueden funcionar a diferentes velocidades si funciona de forma síncrona
+    Por tanto son ciertas
+        ==> Sólo un dispositivo puede escribir en el bus en un instante dado
+        ==> El procesador y los dispositivos pueden funcionar a diferentes velocidades si funciona de forma asíncrona
+        ==> Se utilizan las mismas líneas de control para conectar todos los dispositivos
+*Sobre las técnicas de transferencia en operaciones de E/S:
+    Todas son ciertas:
+    ==> Pueden ser controladas por programa o por hardware
+    ==> Si se emplea E/S programada puede hacerse con consulta de estado o sin consulta de estado
+    ==> En el caso de utilizar E/S mediante DMA hace falta emplear un controlador de DMA
+*true Cuando se usan interrupciones vectorizadas, el periférico puede suministrar al procesador un índice referente a una tabla de vectores de interrupción.
+*true Puede existir un sistema que use "daisy-chain" e identifique la fuente de una interrupción mediante "polling".
+*¿Cuál de los siguientes grupos de instrucciones podrá pertenecer a un procesador con E/S mapeada en memoria?
+    ==> LOAD, MOV, STORE
+    Por tanto no:
+        ==> IN, LOAD, OUT
+        ==> IN, LOAD, MOV
+*false Con cuatro controladores de interrupciones 8259 se pueden manejar 32 niveles de prioridad.
+*true Si varios dispositivos comparten una línea de solicitud de interrupción que usa "daisy chain", el dispositivo que 
+    está eléctricamente más lejano de la CPU tiene la menor prioridad.
+
+*Suponiendo que varios dispositivos comparten una única línea de solicitud de interrupción y que varios de ellos solicitan una
+    interrupción al mismo tiempo, ¿qué dispositivo tendría mayor prioridad a la hora de ser atendidas sus peticiones?
+    ==> Si se emplea una técnica de sondeo ("polling"), el dispositivo cuyo estado se consulte primero
+    ==> Si se emplea una técnica de encadenamiento ("daisy-chain"), el dispositivo al que primero se conecta la línea INTA# del procesador
+
+*¿Qué método de identificación de la fuente de una interrupción suele ser más económico desde el punto de vista hardware?
+    ==> La identificación mediante la técnica de sondeo
+
+*false El bus interno de un Pentium es del tipo "board-level".
+*¿A qué tipo de interrupciones pertenecen las condiciones de tiempo real y los fallos hardware? => No enmascarables
+*La conexión entre un dispositivo de E/S y el procesador mediante bus:
+    ==> Permite conectar en paralelo varios dispositivos
+*¿Qué técnica de E/S consume menos tiempo del procesador?
+    ==>E/S mediante DMA
+*true En la E/S mapeada en memoria se decodifican mediante hardware externo al procesador las direcciones correspondientes a E/S o a memoria.
+*false El bus de direcciones contiene líneas para indicar el sentido de la transferencia de datos, por ejemplo una línea para distinguir entre 
+    lectura y escritura.
+    
+*¿Es posible utilizar 4 GB de memoria en un sistema cuya CPU emplea E/S mapeada en memoria, cuyo bus de direcciones es de 32 bits y que tiene al
+     menos un puerto de E/S? Supondremos que no se puede emplear ninguna técnica de extensión del bus de direcciones.
+    ==> NO
+
+*false En un sistema de gestión de interrupciones mediante "polling" o sondeo, el dispositivo que solicita la interrupción envía, junto
+    con la señal de petición de interrupción, su correspondiente vector de interrupción.
+*¿Qué técnica de E/S se dice controlada por hardware?
+    ==> Acceso directo a memoria
+
+*¿Qué forma de realizar acceso directo a memoria es más rápida?
+    ==>Transferencia de bloques o parada de CPU
+
+*Las interrupciones generadas por el teclado interrumpirán al procesador:
+    ==>sólo si el procesador tiene activado el indicador de habilitación de interrupciones
+*Cuando se produce una interrupción hardware...Se guarda el estado y se ejecuta la rutina de interrupción asociada
+*En un sistema con dos buses separados, uno para el subsistema de memoria y otro para la E/S...
+    ==>el bus que une la memoria y el procesador suele funcionar a la velocidad de la memoria
+
+*true El bus AGP permite que los aceleradores gráficos accedan directamente a texturas almacenadas en la memoria principal.
+*true Se puede programar un controlador de interrupciones 8259 de manera que atienda equitativamente a 8 dispositivos de igual 
+    prioridad (cada vez que se atiende a un dispositivo, éste pasa automáticamente a tener la prioridad más baja).
+*¿Cuál es la principal ventaja de un bus único avanzado frente a un bus único?
+    ==>La desconexión de los periféricos del bus del procesador
+*En la E/S controlada por interrupciones:
+    ==> La CPU transfiere el control a una rutina de servicio cuando recibe una interrupción.
+*¿Cuál de las siguientes afirmaciones es cierta?
+    ==> Los buses PC XT, AT/ISA, MCA, EISA, VLB, PCI y AGP son buses de placa madre de PC
+*true En las transferencias asíncronas, es común acompañar a cada dato transferido de una señal de control que indica la presencia del dato en el bus.
+*Un procesador de 8 bits, ¿a cuántos puertos de E/S podrá acceder?
+    ==>Depende del método de selección de periféricos que emplee
+
+*Técnicas que se pueden usar para determinar la causa de una interrupción (señalar la opción incorrecta)
+    ==> línea de reconocimiento INTA#
+    Por tanto son correctas:
+        ==> consulta de estado, o polling
+        ==> múltiples líneas de interrupción INT1#, INT2#...
+        ==> interrupciones vectorizadas
+*true En las transferencias asíncronas no existe un reloj común a maestro y esclavo.
