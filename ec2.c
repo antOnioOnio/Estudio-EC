@@ -1,4 +1,26 @@
 ------------------------------------------------------------------------------------------------------
+¿Cuál es el tamaño de la marca de cache si el bus de direcciones es de 48 bits (256 TB de memoria principal) y 
+hay 8MB de cache L3, con un tamaño de línea de 64 B y correspondencia asociativa por conjuntos con 16 vías?
+------------------------------------------------------------------------------------------------------
+29 bits
+
+------------------------------------------------------------------------------------------------------
+Una memoria estática tiene un bus de datos de 32 bits y su bus de direcciones es de 20 bits, ¿cuál es su capacidad?
+------------------------------------------------------------------------------------------------------
+2^20 * 2^5 / 2^3 = 4 Mbytes
+
+------------------------------------------------------------------------------------------------------
+Un sistema basado en un microprocesador con un bus de datos de n bits y un bus de direcciones de 16 bits
+ direcciona la memoria por palabras de n bits y dispone de una memoria SRAM formada por dos módulos de 
+ 16 K x n cada uno. ¿Qué porcentaje del mapa de memoria está ocupado por la SRAM?
+------------------------------------------------------------------------------------------------------
+
+50% ==> 16bits => 64Kpal
+        16+16 Kpal = 32Kpal = 50% 64Kpal
+
+
+
+------------------------------------------------------------------------------------------------------
 Un computador con 13 líneas de direcciones tiene una memoria de M palabras y utiliza una E/S localizada 
 en memoria. Si se supone que cada uno de los periféricos que puede conectarse ocupa 4 direcciones y que 
 el número máximo de periféricos de estas características que se conecta es de 2^10. ¿Cuál es el tamaño
@@ -8,9 +30,23 @@ el número máximo de periféricos de estas características que se conecta es d
 
 
 ------------------------------------------------------------------------------------------------------
+Sea un computador de 32 bits que dispone de una memoria cache de 512 KB y líneas de 64 bytes. ¿Cuántas 
+líneas tiene la cache?
+------------------------------------------------------------------------------------------------------
+
+8192
+
+------------------------------------------------------------------------------------------------------
+Una memoria que está organizada en palabras de 8 bits tiene una capacidad de 32 Kbits. 
+¿Cuántas líneas de dirección tiene dicha memoria?
+------------------------------------------------------------------------------------------------------
+12
+
+
+------------------------------------------------------------------------------------------------------
 Un computador con 20 lineas de direccion y memoria de bytes tiene 640KB de RAM 128KB de ROM y utiliza
 E/S mapeada en memoria. ¿Cual es el numero maximo de perifericos que pueden conectarse, si cada uno de ellos
-utiliza 32 direcciones
+utiliza 32 direcciones<
 ------------------------------------------------------------------------------------------------------
 
     Tenemos 2^20 lineas de direccion ==> 1048576
@@ -42,8 +78,6 @@ Se dispone de un computador cuyo tiempo medio de acceso al sistema de memoria ca
     tiempo medio de acceso a la jerarquia = probAcierto×tiempoAcierto + probFallo×TiempoFallo
 
     8 ns            ( NI PUTA IDEA)
-
-
 
 
 ------------------------------------------------------------------------------------------------------
@@ -279,20 +313,6 @@ T.T.O. por las etiquetas      425984
 T.T.O por las instrucciones   8388608
     
 -> para calcular Dirección fisica de memoria principal desde el punto de vista de una L1 de (Datos) hacer lo mismo que para la de instrucciones a)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -610,8 +610,6 @@ Tema 5
     ==> tipo de operación, tamaño de bloque a transferir, dirección inicial de memoria
 
 
-
-
 //=========
 //=========
 Tema 6
@@ -701,6 +699,9 @@ Tema 6
 *El ancho de banda de memoria es: ==> el número de bytes que se pueden leer/escribir por unidad de tiempo
 *El tamaño del registro de salida de una memoria asociativa de n palabras y m bits/palabra es:
     ==> m bits
+*Si tenemos una memoria asociativa de n palabras con m bits/palabra, ¿cuál es el tamaño del registro indicador?
+    ==> n bits
+
 *Las señales BHE# y A0(=BLE#) son necesarias para seleccionar direcciones pares e impares en el procesador
     ==>8086
 *false El objetivo de un circuito de refresco de memoria es conseguir que ésta no se caliente más allá de cierto
@@ -709,3 +710,111 @@ Tema 6
 *¿En qué tipo de memorias coincide el tiempo de acceso y el tiempo de ciclo? ==> SRAM
 *En una jerarquía de memoria, a medida que nos alejamos de la CPU:
     ==> el tamaño de la unidad de transferencia entre dos niveles aumenta
+*¿Qué política de memoria virtual para colocar nuevos segmentos en los huecos libres de la memoria principal evita
+    el que se generen huecos pequeños?
+    ==> Peor ajuste
+*Las celdas de memoria estática...
+    ==> mantienen las información almacenada por tiempo indefinido mientras se mantenga la alimentación
+*Un procesador accede en el instante de tiempo t a una posición de memoria d(t). Poco tiempo después (en el 
+    instante de tiempo t+k) accede a la posición anterior d(t)-1. Esos dos accesos son un ejemplo de...
+    ==> Localidad espacial
+*false Una TLB es una tabla de localización de bloques de memoria inutilizados ("Table Location Block").
+*false Una placa madre de un 486 con un único SIMM de 30 contactos con 8 chips de 1M x 1, tiene 2 M palabras de memoria principal.
+*¿Qué política de colocación en caché necesita más comparadores, la correspondencia asociativa por conjuntos o 
+    la correspondencia por sectores?
+    ==> Depende de si es mayor el número de bloques por conjunto o el número de sectores
+*true La penalización por una falta de página suele ser de cientos de miles de ciclos de reloj de la CPU.
+*Un TLB suele tener:
+    ==> un número de entradas o elementos mucho menor que el número de páginas de la memoria virtual
+*true Si el tamaño de página es pequeño y el número de páginas virtuales grande, la tabla de páginas puede ser 
+    demasiado grande para residir completa en memoria. Una solución es dividir la tabla de páginas en dos niveles: 
+    directorios de tablas de páginas, y tablas de páginas.
+*true Los modernos circuitos DRAM permiten prescindir de contadores externos para el refresco.
+*Sólo una de las siguientes afirmaciones sobre memorias ROM es correcta. ¿Cuál?
+    ==> Para fabricar una ROM se deben conocer los datos que se desea que almacene
+    Por tanto son incorrectas:
+        ==> Una PROM (Programmable ROM) se puede grabar usando un dispositivo programador que selectivamente funde 
+            contactos aplicándoles altas temperaturas mediante diminutas cabezas soldadoras (“equipo de puntas”)
+        ==> Una EEPROM (Erasable EPROM) se puede grabar (eléctricamente), y borrar (usando rayos ultravioleta)
+        ==> Una EPROM (Electrically Progr. ROM) se puede grabar eléctricamente, sin fundir contactos, pero no se puede borrar
+
+*true En una memoria asociativa sin registro de máscara, el valor de una clave almacenada en el registro de entrada se compara 
+    simultáneamente con todas las palabras de memoria.
+
+*¿Cuál de las siguientes afirmaciones respecto a la memoria RDRAM no es cierta?
+    ==> El bus de datos suele ser muy ancho.
+    por tanto es cierto :
+        ==> Funciona de forma síncrona y a muy alta velocidad
+        ==> Las direcciones de fila y columna son enviadas en el mismo ciclo de reloj por buses separados
+        ==> La interfaz entre el procesador y la memoria es muy diferente a la de las memorias DDR
+
+*¿Cuál de las siguientes afirmaciones acerca de las memorias RAM estáticas es falsa?
+    ==> El número de transistores necesario para implementar cada celda es menor que en las memorias RAM dinámicas
+    Por tanto son ciertas :
+        ==> Los datos almacenados se mantienen por un tiempo indefinido
+        ==> Las operaciones de lectura no son destructivas
+        ==> Son más veloces que las memorias RAM dinámicas
+
+*true El registro base de la tabla de páginas contiene la dirección de memoria a partir de la cual se encuentra
+    la tabla de páginas de la memoria virtual.
+
+*¿Qué necesitamos para construir una memoria de 1K x 8 bits?
+    ==> 8 memorias de 256 x 4 bits y un decodificador de 2 a 4
+
+*true La SDRAM utiliza entrelazado.
+*Supongamos una memoria asociativa con un registro indicador de x bits y otro de máscara de y bits. 
+    ¿Cuántas palabras puede almacenar dicha memoria? ==> X
+*false Una caché totalmente asociativa es equivalente a una asociativa por conjuntos de una vía.
+*false El entrelazado de orden superior se utiliza más que el de orden inferior en procesadores vectoriales
+     debido a que su expansión es más fácil.
+*false El TLB tiene tantas entradas como número de páginas la memoria física.
+*false El ancho de banda de memoria es el número de bits que se pueden transferir entre ésta y la CPU 
+    en paralelo en una sola operación de lectura o escritura.
+*Una memoria estática tiene un bus de datos de 32 bits y su bus de direcciones es de 20 bits, ¿cuál es su capacidad?
+    4 Mbytes
+*¿Qué conjunto de componentes permite construir una memoria 256Mx32? (sin que sobren componentes)
+    32 chips 64Mx4
+*true El principio de localidad espacial en los accesos a memoria se justifica porque las instrucciones 
+    se ejecutan secuencialmente y los datos relacionados se almacenan juntos.
+*false La RAM EDO es más rápida que la SDRAM.
+*En el Pentium, el TLB permite buscar rápidamente...
+    ==> La dirección física a partir de la dirección lineal
+*En una cache asociativa por conjuntos de 2^v vías con 2^b líneas (marcos de bloque) de 2^w palabras, el gestor 
+    de memoria no considera como campo (conjunto de bits contiguos con significado o relevancia) los siguientes bits:
+    ==> bits  b…b+c-1 (siendo 2^c=nº conjuntos)
+    Por tanto considera:
+        ==>bits w…w+c-1 (con c=b-v)
+        campo "conjunto"
+        ==>bits w…w+c-1 (siendo 2^c=nº conjuntos)
+        campo "conjunto"
+        ==>últimos w bits (0…w-1) (los menos significaftivos)
+        campo "palabra"
+*¿Cuál de las siguientes afirmaciones es falsa?
+    ==>Las memorias DRAM son en general mucho más rápidas que las SRAM
+    Por tanto son verdaderas:
+        ==>La lectura de un bit de la matriz de almacenamiento de una memoria DRAM proporciona una señal 
+        mucho más débil que la suministrada por los inversores de una celda de memoria SRAM.
+        ==>Las memorias DRAM presentan generalmente una capacidad de almacenamiento mucho mayor que las SRAM.
+        ==>Una celda DRAM sólo necesita un transistor y un condensador.
+*En una jerarquía de memoria, a medida que nos alejamos del procesador...
+    ==>El tamaño de la unidad de transferencia entre dos niveles aumenta.
+*Respecto al entrelazado de memoria:
+    ==>Empleando entrelazado de orden superior las direcciones de memoria se reparten de forma consecutiva dentro de un módulo
+    ==>El entrelazado de orden inferior permite el acceso simultáneo a palabras consecutivas
+    ==>La cantidad de conflictos en el acceso a la memoria suele ser menor en los sistemas que emplean entrelazado de orden inferior
+*false En los sistemas de memoria entrelazada, la memoria está dividida en n módulos. Se utilizan log2 n bits del bus de direcciones
+ (que tiene m bits en total) para seleccionar un módulo. El resto de los bits del bus de direcciones se divide en n subbuses de tamaño
+  (m - log2 n)/n, cada uno de los cuales sirve para direccionar la palabra dentro del módulo correspondiente.
+*true El número de páginas direccionables con la dirección virtual puede ser superior al número de páginas direccionables con la
+    dirección física.
+*true Uno de los objetivos de las cachés separadas (no unificadas) es poder aumentar el ancho de banda entre caché y CPU al emitir 
+    direcciones de instrucción y dato a la vez.
+*¿En qué tipo de refresco de memoria DRAM CAS# permanece a 0 después del ciclo de lectura o escritura precedente?
+    ==>Refresco transparente
+*La "postescritura (write-back) marcada"
+    ==>es más eficiente que la "postescritura siempre"
+*false En una caché totalmente asociativa de 4 K bloques no pueden coexistir simultáneamente los bloques 18 y 8120 de memoria principal.
+*¿Cuál de las siguientes secuencias de tipos de memoria está ordenada de menores a mayores prestaciones?
+    ==> FPM, EDO, RDRAM
+*Un TLB suele tener:
+    ==> un número de entradas o elementos mucho menor que el número de páginas de la memoria virtual
