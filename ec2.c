@@ -1,5 +1,62 @@
-¿cuantos bits tendria noseque cache...==> obsoleto
+------------------------------------------------------------------------------------------------------
+Un computador con 13 líneas de direcciones tiene una memoria de M palabras y utiliza una E/S localizada 
+en memoria. Si se supone que cada uno de los periféricos que puede conectarse ocupa 4 direcciones y que 
+el número máximo de periféricos de estas características que se conecta es de 2^10. ¿Cuál es el tamaño
+ de la memoria del computador?
+------------------------------------------------------------------------------------------------------
 
+
+
+------------------------------------------------------------------------------------------------------
+Un computador con 20 lineas de direccion y memoria de bytes tiene 640KB de RAM 128KB de ROM y utiliza
+E/S mapeada en memoria. ¿Cual es el numero maximo de perifericos que pueden conectarse, si cada uno de ellos
+utiliza 32 direcciones
+------------------------------------------------------------------------------------------------------
+
+    Tenemos 2^20 lineas de direccion ==> 1048576
+    le restamos la rom y la ram ==> - 655360 - 131072 
+                                    ------------------
+                                            262144
+
+    Ese espacio nos queda, ahora como cada uno usa 32 lo dividimos y nos da ==> 8192 ==> 2^13
+
+
+------------------------------------------------------------------------------------------------------
+Un computador con 15 lineas de direcciones tiene 3 modulos de memoria de 2^13 palabras y utiliza E/S 
+mapeada en memoria ¿Cuál es el numero maximo de perifericos que pueden conectarse, si cada uno de ellosutiliza 
+8 direcciones
+------------------------------------------------------------------------------------------------------
+
+    Tenemos 2^15 lineas de direcciones ==> por lo tanto tenemos 32768           32768 - 24576 = 8192
+    Restamos 3 modulos de memoria de 2^13 ==> - 8192 x 3                
+    Ahora tenemos 8192 y como cada periferico utiliza 8 direcciones ==> 1024 ==> 2^10
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Se dispone de un computador cuyo tiempo medio de acceso al sistema de memoria cache y memoria principal es de 18 ns.
+ Si la tasa de fallo de la cache es de 0,2 y el tiempo de acceso a la memoria principal es 50 ns. 
+ ¿Cuál es el tiempo de acceso a la cache?
+------------------------------------------------------------------------------------------------------
+    tiempo medio de acceso a la jerarquia = probAcierto×tiempoAcierto + probFallo×TiempoFallo
+
+    8 ns            ( NI PUTA IDEA)
+
+
+
+
+------------------------------------------------------------------------------------------------------
+En un computador con una jerarquía de memoria de dos niveles se observa experimentalmente que el tiempo 
+medio de acceso a la memoria es de 300 ns cuando en realidad el tiempo medio de acceso al primer nivel 
+es de 6 ns. Sabiendo que el tiempo de acceso al segundo nivel es de 3 microsegundos, ¿cuál sería aproximadamente
+ el porcentaje de fallos en los accesos al primer nivel?
+------------------------------------------------------------------------------------------------------
+
+    tiempo medio de acceso a la jerarquia = probAcierto×tiempoAcierto + probFallo×TiempoFallo
+    300 ns = 6 ns + % fallo * 3 microsegundos ;
+
+    fall0 = 294 ns / 3000 ns ==> 0.098 ==> 0.1 ==> 10%
 
 
 ------------------------------------------------------------------------------------------------------
@@ -9,21 +66,21 @@ La organización de la memoria caché es totalmente asociativa y el tamaño de b
  calcule el número de fallos cuando se lee la secuencia de direcciones de la memoria principal:
  0000100, 1000001, 0000101, 0010011, 0100010, 1000100, 0000111.
 ------------------------------------------------------------------------------------------------------
-000 0100 ==> fallo y me traigo ==>  [0,7] 
-100 0001 ==> fallo y me traigo ==>  [64,71]
-000 0101 ==> Acierto
-001 0011 ==> fallo y me traigo ==> [16,23]
-010 0010 ==> fallo y me traigo ==> [32,39]
-100 0100 ==> Acierto
-000 0111 ==> Acierto
+    000 0100 ==> fallo y me traigo ==>  [0,7] 
+    100 0001 ==> fallo y me traigo ==>  [64,71]
+    000 0101 ==> Acierto
+    001 0011 ==> fallo y me traigo ==> [16,23]
+    010 0010 ==> fallo y me traigo ==> [32,39]
+    100 0100 ==> Acierto
+    000 0111 ==> Acierto
 
 ------------------------------------------------------------------------------------------------------
 ¿Cuántas líneas de dirección (patillas) son necesarias para direccionar un chip de memoria DRAM de 16M x 16?
 ------------------------------------------------------------------------------------------------------
 
 
- 
-16M = 2^24. Multplexamos 12+12. Por tanto 12 HDLGP
+    
+    16M = 2^24. Multplexamos 12+12. Por tanto 12 HDLGP
 
 
 ------------------------------------------------------------------------------------------------------
@@ -31,14 +88,14 @@ En un sistema Linux IA32, ¿cuántos enteros se podrían almacenar en una línea
 asociativa por conjuntos de 4-vías, y contuviera 4 conjuntos?
 ------------------------------------------------------------------------------------------------------
 
-Si tenemos 4 vias es como si tuvieramos 4 caches de 1k
-un conjunto son las 4 "oportunidades" de una línea
+    Si tenemos 4 vias es como si tuvieramos 4 caches de 1k
+    un conjunto son las 4 "oportunidades" de una línea
 
-Cada linea ==> 2*10 / 2^2 ==> 2^8
+    Cada linea ==> 2*10 / 2^2 ==> 2^8
 
-Cada int ==> 2^2 ====> 2^8      
-                    --------  ==> 2^6 ==> 64 ints 
-                       2^2
+    Cada int ==> 2^2 ====> 2^8      
+                        --------  ==> 2^6 ==> 64 ints 
+                        2^2
 
 ------------------------------------------------------------------------------------------------------
 El primer nivel de una jerarquía de memoria tiene una tasa de aciertos del 80% y las peticiones de memoria tardan 15 ns en
@@ -46,7 +103,7 @@ completarse si dicha posición se encuentra en ese nivel y 100 ns si no es así.
 ------------------------------------------------------------------------------------------------------
 probAcierto×tiempoAcierto + probFallo×TiempoFallo
 
-0.8*15 + 0.2*100 =>  32 ns
+    0.8*15 + 0.2*100 =>  32 ns
 
 
 ------------------------------------------------------------------------------------------------------
@@ -54,51 +111,51 @@ probAcierto×tiempoAcierto + probFallo×TiempoFallo
 el campo etiqueta en el formato de dirección cache es de.
 ------------------------------------------------------------------------------------------------------
     
-|-----------------32-----------------|
+    |-----------------32-----------------|
 
-lineas de 64 B = 2^6 B 
-cache de 1 MB = 2 ^20 B
-vias = 2^2 vias = 2^2 lineas/conjunto
+    lineas de 64 B = 2^6 B 
+    cache de 1 MB = 2 ^20 B
+    vias = 2^2 vias = 2^2 lineas/conjunto
 
-2 ^20 / 2^ 6b/linea ==> 2^14
-
-
-2^14 lineas
------------     =====> 2^12 conjuntos
-2^2 lineas/conjunto
+    2 ^20 / 2^ 6b/linea ==> 2^14
 
 
-
-|------14------|---12------|--6--|
-    etiqueta     conjunto     byte
-    marca                     offset 
-    tag                        desp.
+    2^14 lineas
+    -----------     =====> 2^12 conjuntos
+    2^2 lineas/conjunto
 
 
 
+    |------14------|---12------|--6--|
+        etiqueta     conjunto     byte
+        marca                     offset 
+        tag                        desp.
 
-Se hace directamente asi        
 
-2^20 B              1 Conjunto
-------          x   -----------    2^12 Conjunto
-2^6 B/linea          2^2 lineas
+
+
+    Se hace directamente asi        
+
+    2^20 B              1 Conjunto
+    ------          x   -----------    2^12 Conjunto
+    2^6 B/linea          2^2 lineas
 
 
 ------------------------------------------------------------------------------------------------------
 * Un módulo de memoria de 16 GB está formado por varios chips DRAM de 1024Mx4. ¿Cuántos chips DRAM necesita el módulo?
 ------------------------------------------------------------------------------------------------------
-        +---+
-  1024  |   |
-        +---+  
-          4
-          
-2^30 * 2*2 bits/circuito = 2^32 bits/circuito
+            +---+
+    1024  |   |
+            +---+  
+            4
+            
+    2^30 * 2*2 bits/circuito = 2^32 bits/circuito
 
-16 GB = 2^34 B = 2^34*2^3 bits = 2^37 bits
+    16 GB = 2^34 B = 2^34*2^3 bits = 2^37 bits
 
-2^37 bits
----------           = 2^5 circuitos
-2^32 bits /circuito
+    2^37 bits
+    ---------           = 2^5 circuitos
+    2^32 bits /circuito
 
 
 ------------------------------------------------------------------------------------------------------
@@ -223,3 +280,21 @@ T.T.O por las instrucciones   8388608
     
 -> para calcular Dirección fisica de memoria principal desde el punto de vista de una L1 de (Datos) hacer lo mismo que para la de instrucciones a)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+¿cuantos bits tendria noseque cache...==> obsoleto

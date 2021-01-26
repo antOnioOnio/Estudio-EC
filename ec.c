@@ -664,3 +664,48 @@ Tema 6
         ==> Las celdas de memoria dinámica están constituidas por un transistor y un condensador
         ==> La memoria estática se emplea en las caches L1 y L2
         ==> La memoria dinámica usa señales de control RAS# y CAS#
+
+*Sobre un sistema que utiliza un esquema de memoria virtual con segmentación paginada podemos decir que:
+    false ==> Es un sistema de correspondencia entre direcciones virtuales y direcciones en memoria caché
+    false ==> Entre disco y memoria principal se transfieren segmentos completos
+
+*Respecto al refresco de memorias DRAM, ¿cuál de las siguientes afirmaciones es falsa?
+    false ==> Una operación de refresco consiste en dar un impulso /CAS junto con una dirección de columna.
+            sería es /RAS con dirección de fila
+    true  ==> Los ciclos de refresco deben producirse cada pocos ms (milisegundos).
+    true  ==> Los chips DRAM refrescan automáticamente la fila accedida en cualquier ciclo de lectura o escritura.
+    true  ==> Se precisa una circuitería auxiliar, externa al chip DRAM o integrada en él, que produzca ciclos de refresco.
+
+*En las políticas anticipativas de extracción de cache, ¿cuál de ellas se caracteriza por preextraer el bloque i+1 si se 
+    referencia al bloque i y se produce falta de bloque?    ==> Preextracción por falta
+
+*¿Cuáles de las siguientes direcciones de memoria podrían estar simultáneamente en una memoria cache de 256 palabras con 
+    16 palabras por bloque y con correspondencia directa ?
+    ==> 0xABAB y 0xABAC
+*¿En qué tipo de ciclo de refresco se hace RAS# = 0?
+    ==> RAS#, CAS# antes de RAS#, Refresco transparente
+
+*true Suponga que una memoria de acceso aleatorio (RAM) tiene 2^k palabras de 2^p bits cada una. En tal caso sería común
+    que el registro de dirección de memoria tuviera k bits y el registro intermedio de memoria tuviera 2^p bits.
+
+*En una cache con correspondencia directa de 2^p palabras y líneas de 2^w palabras, el gestor de memoria *NO* 
+    considera como campo (conjunto de bits contiguos con significado o relevancia) los siguientes bits:
+    ==> bits w…w+p-1
+    Por tanto si:
+        ==>últimos w bits (0..w-1) (los menos significativos) ((campo palabra))
+        ==>bits w…p-1 ((campo marco))
+        ==>primeros bits, desde el más significativo hasta el bit p ((campo "etiqueta"))
+
+*false El ancho de banda de las arquitecturas de memoria dinámica más recientes (DRDRAM y SLDRAM) es de unos pocos TB (Terabytes).
+
+*El ancho de banda de memoria es: ==> el número de bytes que se pueden leer/escribir por unidad de tiempo
+*El tamaño del registro de salida de una memoria asociativa de n palabras y m bits/palabra es:
+    ==> m bits
+*Las señales BHE# y A0(=BLE#) son necesarias para seleccionar direcciones pares e impares en el procesador
+    ==>8086
+*false El objetivo de un circuito de refresco de memoria es conseguir que ésta no se caliente más allá de cierto
+     límite peligroso para la integridad de los datos.
+
+*¿En qué tipo de memorias coincide el tiempo de acceso y el tiempo de ciclo? ==> SRAM
+*En una jerarquía de memoria, a medida que nos alejamos de la CPU:
+    ==> el tamaño de la unidad de transferencia entre dos niveles aumenta
