@@ -608,3 +608,59 @@ Tema 5
     ==> El diseño de la CPU es más sencillo.
 *Un controlador de DMA suele ser programado con la siguiente información relativa a una operación de E/S:
     ==> tipo de operación, tamaño de bloque a transferir, dirección inicial de memoria
+
+
+
+
+//=========
+//=========
+Tema 6
+
+*Con 8 circuitos de memoria RAM de 1K x 8 se puede crear un memoria de:
+    ==> Todas las combinaciones anteriores son posibles
+
+*false El refresco sólo RAS consiste en activar la señal RAS a la vez que se proporciona la dirección de fila a refrescar, y a 
+    continuación activar la señal CAS sin proporcionar dirección de columna.
+*true El registro base de la tabla de páginas contiene la dirección de memoria a partir de la cual se encuentra la tabla de 
+    páginas de la memoria virtual.
+*¿Cuál de los siguientes grupos de señales no se usa en un chip de memoria SRAM?
+    ==> Selección de filas RAS# y de columnas CAS#. (( esta sería para DRAM ))
+    Por tanto sí se usan:
+        ==> Direcciones A_{n-1}-A_0.
+        ==> Datos D_{n-1}-D_0.
+        ==> Selección de chip CS# y habilitación de escritura WE#.
+
+*false El registro máscara de una memoria asociativa permite inhabilitar las solicitudes de interrupción correspondientes a 
+    fallos de comparación.
+
+*Se tiene una memoria que emplea entrelazado. Si fallan varias celdas contiguas de uno de sus chips de memoria,
+     ¿con qué tipo de entrelazado de memoria sería más fácil poder utilizarla?
+    ==> Entrelazado de orden superior
+
+*true En una jerarquía de memoria con estrategia "Write-Through" en todos los niveles, el tiempo medio 
+    de acceso en escritura no es mejor que si sólo existiera el último nivel.
+*true Un sistema de memoria virtual combina técnicas hardware y software.
+*true La caché es gestionada por algoritmos hardware (o firmware).
+*false La memoria FLASH es un tipo de SDRAM.
+*¿Es posible utilizar 4 GB de memoria en un sistema cuya CPU emplea E/S mapeada en memoria, cuyo bus de direccioneses de 32 bits y
+ que tiene al menos un puerto de E/S? Supondremos que no se puede emplear ninguna técnica de extensión del bus de direcciones.
+    ==> NO
+*El tamaño del registro indicador de una memoria asociativa de n palabras x m bits/palabra es: ==> n bits
+*false Una caché puede incrementar las prestaciones de la memoria incluso si opera a la misma velocidad que la memoria principal.
+*true En segmentación paginada el uso de una TLB puede ahorrar muchos accesos a memoria.
+*true Las memorias caché con política de extracción anticipativa (prebúsqueda o preextracción) soportan búsqueda por demanda.
+*false La eficiencia de un sistema que emplea memoria caché (definida como la razón entre el tiempo de acceso a caché y el 
+    tiempo medio de acceso al sistema caché-M.P.) vale 0 cuando la razón de aciertos de la caché vale también 0.
+*false Un SIMM con 8 chips de 4Mx1 contiene 1 M palabras de 32 bits.
+*true En memoria virtual se utiliza postescritura en el disco como política de actualización.
+*true Para aumentar el ancho de banda entre caché y memoria principal se puede acceder a ésta en modo página si lo permite.
+*true En una memoria con entrelazado de orden inferior, M módulos y acceso simultáneo, el tiempo de acceso a las 2M palabras 
+    cuyas direcciones son 0, 1, ..., 2M-1 es menor o igual que 3Ta, siendo Ta el tiempo de acceso a cada módulo de memoria.
+*false El principal inconveniente de las memorias direccionables por contenido es su gran tiempo de acceso cuando se realizan
+     búsquedas o comparaciones en paralelo.
+*¿Cuál de las siguientes afirmaciones acerca de la memoria es *FALSA*?
+    ==> Las celdas de memoria estática tienen que ser constantemente refrescadas
+    Por tanto son trues:
+        ==> Las celdas de memoria dinámica están constituidas por un transistor y un condensador
+        ==> La memoria estática se emplea en las caches L1 y L2
+        ==> La memoria dinámica usa señales de control RAS# y CAS#

@@ -1,5 +1,54 @@
 ¿cuantos bits tendria noseque cache...==> obsoleto
 
+
+
+------------------------------------------------------------------------------------------------------
+Un computador emplea un sistema de memoria principal de 128 palabras y una memoria caché de 32 palabras. 
+La organización de la memoria caché es totalmente asociativa y el tamaño de bloque es de 8 palabras.
+ Se emplea el algoritmo de reemplzao FIFO. Si inicialmente la memoria caché está totalmente vacía, 
+ calcule el número de fallos cuando se lee la secuencia de direcciones de la memoria principal:
+ 0000100, 1000001, 0000101, 0010011, 0100010, 1000100, 0000111.
+------------------------------------------------------------------------------------------------------
+000 0100 ==> fallo y me traigo ==>  [0,7] 
+100 0001 ==> fallo y me traigo ==>  [64,71]
+000 0101 ==> Acierto
+001 0011 ==> fallo y me traigo ==> [16,23]
+010 0010 ==> fallo y me traigo ==> [32,39]
+100 0100 ==> Acierto
+000 0111 ==> Acierto
+
+------------------------------------------------------------------------------------------------------
+¿Cuántas líneas de dirección (patillas) son necesarias para direccionar un chip de memoria DRAM de 16M x 16?
+------------------------------------------------------------------------------------------------------
+
+
+ 
+16M = 2^24. Multplexamos 12+12. Por tanto 12 HDLGP
+
+
+------------------------------------------------------------------------------------------------------
+En un sistema Linux IA32, ¿cuántos enteros se podrían almacenar en una línea de cache, si la cache del procesador fuera de 4 KB, 
+asociativa por conjuntos de 4-vías, y contuviera 4 conjuntos?
+------------------------------------------------------------------------------------------------------
+
+Si tenemos 4 vias es como si tuvieramos 4 caches de 1k
+un conjunto son las 4 "oportunidades" de una línea
+
+Cada linea ==> 2*10 / 2^2 ==> 2^8
+
+Cada int ==> 2^2 ====> 2^8      
+                    --------  ==> 2^6 ==> 64 ints 
+                       2^2
+
+------------------------------------------------------------------------------------------------------
+El primer nivel de una jerarquía de memoria tiene una tasa de aciertos del 80% y las peticiones de memoria tardan 15 ns en
+completarse si dicha posición se encuentra en ese nivel y 100 ns si no es así. ¿Cuál es el tiempo medio de acceso de la jerarquía?
+------------------------------------------------------------------------------------------------------
+probAcierto×tiempoAcierto + probFallo×TiempoFallo
+
+0.8*15 + 0.2*100 =>  32 ns
+
+
 ------------------------------------------------------------------------------------------------------
 * En un sistema con direcciones de 32bits, memoria de bytes, cache de 1MB asociativa por conjuntos de 4 vías y líneas de 64B, 
 el campo etiqueta en el formato de dirección cache es de.
@@ -23,7 +72,7 @@ vias = 2^2 vias = 2^2 lineas/conjunto
 |------14------|---12------|--6--|
     etiqueta     conjunto     byte
     marca                     offset 
-    tag                         desp.
+    tag                        desp.
 
 
 
@@ -82,6 +131,7 @@ Los multiplos de 32 acaban en
 * Sea un formato de microinstruccion que incluye dos campos independientes de 9 bits cada uno.
 Si se rediseña de modo que se solapen los dos campos. ¿ Cuantos bits se ahorran en cada microinstruccion ?
 ------------------------------------------------------------------------------------------------------------
+Se ahorran 8 acabar este desde la foto
 +-----+-----
     9    9
 +-----+-----
