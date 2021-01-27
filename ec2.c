@@ -1,4 +1,34 @@
 ------------------------------------------------------------------------------------------------------
+En la secuencia de programa siguiente:
+400544: e8 07 00 00 00 callq 400550 <f>
+400549: 48 89 03 mov %rax,(%rbx)
+¿cuál es el valor que introduce en la pila la instrucción call?
+------------------------------------------------------------------------------------------------------
+==> 400549
+
+------------------------------------------------------------------------------------------------------
+Una función C declarada como int get_var_digit(size_t index, size_t digit) genera como código ensamblador
+ leaq (%rdi,%rdi,4), %rax
+ addq %rax, %rsi
+movl var(,%rsi,4), %eax
+ ret6
+Se puede adivinar que:
+------------------------------------------------------------------------------------------------------
+    var es un array bidimensional de enteros,con cinco columnas
+
+
+------------------------------------------------------------------------------------------------------
+¿A qué instrucción de lenguaje máquina
+podría corresponder la siguiente secuencia
+de microinstrucciones del camino de datos
+con un bus estudiado en clase?
+ Enable R1, Load Y
+ Enable R2, Select Y, Add, Load Z
+ Enable Z, Load R2
+------------------------------------------------------------------------------------------------------
+===>  add R1, R2
+
+------------------------------------------------------------------------------------------------------
 ¿Cuál es el tamaño de la marca de cache si el bus de direcciones es de 48 bits (256 TB de memoria principal) y 
 hay 8MB de cache L3, con un tamaño de línea de 64 B y correspondencia asociativa por conjuntos con 16 vías?
 ------------------------------------------------------------------------------------------------------
@@ -78,6 +108,16 @@ Se dispone de un computador cuyo tiempo medio de acceso al sistema de memoria ca
     tiempo medio de acceso a la jerarquia = probAcierto×tiempoAcierto + probFallo×TiempoFallo
 
     8 ns            ( NI PUTA IDEA)
+
+------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------
+tiempo medio de acceso a la jerarquia = probAcierto×tiempoAcierto + probFallo×TiempoFallo
+
+    x = 15 ns * 0.8 + 0.2*100 
+        
+
 
 
 ------------------------------------------------------------------------------------------------------
@@ -315,6 +355,12 @@ T.T.O por las instrucciones   8388608
 -> para calcular Dirección fisica de memoria principal desde el punto de vista de una L1 de (Datos) hacer lo mismo que para la de instrucciones a)
 
 
+frecuencia ==> 1 Ghz ==> 10^9 
+
+500 instrucciones x 2 ciclos => 1.000 + 100.000 
+
+10^8 / 10^9 ==> 10^-1 => 1/ 10 = 0.1
 
 
 ¿cuantos bits tendria noseque cache...==> obsoleto
+

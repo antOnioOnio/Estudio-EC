@@ -9,12 +9,13 @@ Registros
     *El registro MDR/MBR contiene el valor que va a ser almacenado en la memoria, o bien se usa para recibir un valor procedente de la memoria
     *Justo antes de que una instrucción máquina escriba un resultado en memoria: en MBR está el resultado y en MAR la dirección donde se almacenará
     *¿Cuál de los siguientes registros se utiliza para guardar la dirección de memoria donde se localiza la instrucción siguiente? Progam counter
-    *El registro RDM (MAR en inglés) contiene la última instrucción o dato leído de memoria o el dato que se va a escribir en memoria. fucking false
+    *false El registro RDM (MAR en inglés) contiene la última instrucción o dato leído de memoria o el dato que se va a escribir en memoria. fucking 
     *Una CPU con bus de direcciones de 16 bits y bus de datos de 8 bits tiene un registro de 8 bits conectado al bus de datos y a la unidad de control.
      Puede tratarse del registro de instruccion
     *¿Cómo actúa el indicador N del registro de indicadores de estado?	Se pone a 1 cuando el resultado es negativo.
     *¿Cómo actúa el indicador Z del registro de indicadores de estado?  Se pone a 1 cuando el resultado de una operación es 0
-
+    *En x86-64, el registro contador de programa se denomina:
+        ==> rip
 
      PROPOSITO GENERAL===> e
      
@@ -312,8 +313,9 @@ Tema 3
 //=========
 //=========
 Tema 4
-
-
+*Suponer que un procesador ideal que ejecuta cada instrucción en T segundos se segmenta en cuatro etapas ideales de duración
+ T/4. Con ello se consigue que
+    ==> cada T/4 segundos se termine de ejecutar una instrucción
 *true Un cauce ("pipeline") de instrucciones con 5 etapas tarda 7 ciclos de reloj o más en ejecutar 3 instrucciones si 
 éstas utilizan las cinco etapas.
 *Las instrucciones de salto...complican el diseño eficiente de los procesadores segmentados.
@@ -818,3 +820,6 @@ Tema 6
     ==> FPM, EDO, RDRAM
 *Un TLB suele tener:
     ==> un número de entradas o elementos mucho menor que el número de páginas de la memoria virtual
+
+
+salva invocantes son diane silk dress cost 89 dolares, rdi rsi rdx rcx r8 r9 y rax
