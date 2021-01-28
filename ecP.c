@@ -153,3 +153,22 @@ el nuevo valor de RCX y del flag CF es
     ==> el salto indirecto
 *El procesador utiliza el puntero de pila...
     ==>En las instrucciones de llamadas y retornos de subrutinas
+
+
+Suponga que para la siguiente secuencia de direcciones enviadas a la cache: 0, 2, 4, 8, 16, 32, la tasa de acierto es 2/3.
+
+    Me da la linea de 16 
+
+    0, 2, 4, 8, 16, 32,
+    
+    0 x => [0, 31]
+    2 => v
+    4 => v
+    8 => v 
+    16 => v
+    32 x
+
+
+
+
+

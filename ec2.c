@@ -1,4 +1,19 @@
 ------------------------------------------------------------------------------------------------------
+Un computador tiene una memoria de control de 640 palabras de 70 bits, de las que 280
+son diferentes. ¿Qué ahorro en número de bits obtendríamos si usáramos
+nanoprogramación en lugar de microprogramación?
+------------------------------------------------------------------------------------------------------
+n * w - (n(log2m) + m*w)
+n ==> numero palabras
+w ==> bits
+m ==> palabras distintas
+log=> redondeando por arriba
+
+640 * 70 - (640*9 + 280*70)
+
+44800 - ( 5760 + 19600)
+
+------------------------------------------------------------------------------------------------------
 En la secuencia de programa siguiente:
 400544: e8 07 00 00 00 callq 400550 <f>
 400549: 48 89 03 mov %rax,(%rbx)
