@@ -39,6 +39,9 @@ Una memoria estática tiene un bus de datos de 32 bits y su bus de direcciones e
 ------------------------------------------------------------------------------------------------------
 2^20 * 2^5 / 2^3 = 4 Mbytes
 
+2^20*2^6 = 2^26 / 2^3 = 2^23
+
+
 ------------------------------------------------------------------------------------------------------
 Un sistema basado en un microprocesador con un bus de datos de n bits y un bus de direcciones de 16 bits
  direcciona la memoria por palabras de n bits y dispone de una memoria SRAM formada por dos módulos de 
@@ -362,5 +365,20 @@ frecuencia ==> 1 Ghz ==> 10^9
 10^8 / 10^9 ==> 10^-1 => 1/ 10 = 0.1
 
 
+
+
+
+Tm=pA(Tc) + (1-pA)(Tc + Td)
+
+
+
+ 
+900 = 9*pa + (1-pa)(3000)
+900 = 9*pa + 3000-3000*pa
+-2100 = 9pa -3000pa 
+-2100 = -2991pa
+pa = 2100 / 2991
+
 ¿cuantos bits tendria noseque cache...==> obsoleto
+
 

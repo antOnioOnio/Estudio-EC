@@ -77,3 +77,79 @@ está relacionada con la aritmética en doble precisión:
     la 5ª banda es la tolerancia
  *En el programa line.cc, si para cada tamaño de línea (line) recorremos una única vez el vector, la gráfica resultante es decreciente porque:
     ==> Cada vez que line aumenta al doble, realizamos la mitad de accesos al vector que para el valor anterior
+
+*¿Qué sentencia usamos en el programa blink (led intermitente) para encender el led integrado en la placa Elegoo Mega2560?
+    ==>digitalWrite (LED_BUILTIN, HIGH);
+
+*Una función C llamada get_el(…) genera el siguiente código ensamblador.
+
+    leaq    (%rdi,%rdi,4), %rax
+    addq    %rax, %rsi
+    movl    arr(,%rsi,4), %eax
+    ret
+
+    ==> arr es un array bidimensional de enteros, con cinco columnas
+
+*La instrucción cmovb %rdx, %rax
+    ==> copia en %rax el contenido de %rdx si el indicador de acarreo es 1
+        sí, "below" equivale a CF
+*Las microoperaciones de la fase de captación de una instrucción:
+    ==> Son comunes para todas las instrucciones
+
+*En la convención de llamada SystemV AMD64 seguida por gcc Linux/x86-64…
+    ==>R10 es un registro salva-invocante, por eso si es necesario hay que salvarlo antes de llamar a función
+        sí, usualmente se protege moviéndolo a un salva-invocado
+
+
+*¿Cuál de las siguientes instrucciones situada al principio de una función se utilizará
+ probablemente para crear espacio en la pila para variables locales sin inicializar?
+    ==> sub     $0x30, %rsp
+
+*Habiendo definido en código fuente ASM longsal:.quad .-saludo justo detrás de un string saludo que ocupaba 28 bytes, si se comparan los 
+    comandos gdb siguientes: x/1xg &longsal frente a print (long) &longsal:
+
+    ==> el primero (x) nos muestra la longitud, y el segundo (print) nos muestra otro valor distinto
+        el otro valor es la dirección de longsaludo, quitar & si se desea ver el valor con print, con x siempre se 
+        usan direcciones (volcado de memoria)
+
+*Si rcx vale -1, tras ejecutar las instrucciones
+        rol $1, %cl
+        rcr $2, %rcx
+el nuevo valor de RCX y del flag CF es
+
+    ==> RCX=-1, CF=1
+
+*En el programa line.cc de la práctica de cache, si para cada tamaño de línea (line) recorremos una única vez el vector, la gráfica 
+    resultante es decreciente porque:
+    ==> el vector se indexa con la variable de control del bucle, con un incremento o paso de line
+    el bucle es for (unsigned i = 0; i < bytes.size(); i += line), si line se duplica se realizan la mitad de accesos
+
+*Para traducir una asignación condicional ( a= b ? c : d ; ) de lenguaje C a lenguaje ensamblador, gcc puede que utilice…
+    ==> Una instrucción de movimiento condicional, pero sólo si el procesador es Pentium Pro/II o superior
+
+*En la práctica de la cache, en size.cc se accede al vector saltando de 64 en 64. ¿Por qué?
+    ==> Porque con un salto menor que 64 habría aciertos por localidad espacial y haría menos clara la gráfica
+        sí, intentamos meter lo más rápidamente posible el vector en cache, para lo cual tocamos sólo un byte de cada línea.
+
+*Para comprobar si el contenido del registro RDX es 0 (y posiblemente saltar a continuación usando la instrucción je), el compilador gcc genera:
+    ==> testq %rdx, %rdx
+
+*En una cache asociativa por conjuntos de 2^v vías con 2^b líneas (marcos de bloque) de 2^w palabras, el gestor de memoria no considera como campo
+    (conjunto de bits contiguos con significado o relevancia) los siguientes bits:
+
+    ==> bits  b…b+c-1 (siendo 2^c=nº conjuntos)
+
+*Dada una función que devuelve la suma de 8 enteros en x86-64, ¿cuál de las siguientes instrucciones suma el 7º argumento?
+    ==> add      0x8(%rsp), %eax
+
+*Un procedimiento llamado por una instrucción call debe guardar y restaurar los registros siguientes siempre que los altere:
+
+    ==> %rbx, %rbp
+    ambos s-invocado
+*En un sistema de interrupciones vectorizado y en daisy-chain, ¿cuál de las siguientes afirmaciones es cierta?
+    ==> La gestión de prioridades queda establecida por el orden en que los dispositivos reciben la señal INTA y el dispositivo se identifica por un 
+    dato que deposita en el bus
+*Uno de los puntos clave de la traducción que gcc hace de una construcción switch-case de lenguaje C a lenguaje ensamblador es…
+    ==> el salto indirecto
+*El procesador utiliza el puntero de pila...
+    ==>En las instrucciones de llamadas y retornos de subrutinas
